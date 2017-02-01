@@ -1,0 +1,30 @@
+group 'com.bolyartech.forge.server.tple'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile project(':forge-server-tple-velocity')
+    compile project(':forge-server-tple-freemarker')
+    compile project(':forge-server-tple-mustache')
+    compile project(':forge-server-tple-handlebars')
+    compile project(':forge-server-tple-jade')
+    compile project(':forge-server-tple-thymeleaf')
+    compile project(':forge-server-tple-jetbrick')
+    compile project(':forge-server-tple-pebble')
+    compile project(':forge-server-tple-jtwig')
+    compile project(':forge-server-tple-jinjava')
+    compile project(':forge-server-tple-rythm')
+    compile project(':forge-server-tple-trimou')
+    compile project(':forge-server-tple-httl')
+
+    compile 'com.bolyartech.forge.server:forge-server-jetty:2.0.0'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
