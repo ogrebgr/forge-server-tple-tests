@@ -1,4 +1,4 @@
-package com.bolyartech.forge.server.tple.tests.pages;
+package com.bolyartech.forge.server.tple.tests.modules.main.pages;
 
 import com.bolyartech.forge.server.handler.WebPage;
 import com.bolyartech.forge.server.misc.TemplateEngine;

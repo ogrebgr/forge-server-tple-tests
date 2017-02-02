@@ -1,4 +1,4 @@
-package com.bolyartech.forge.server.tple.tests.pages;
+package com.bolyartech.forge.server.tple.tests.modules.main.pages;
 
 import com.bolyartech.forge.server.response.Response;
 import com.bolyartech.forge.server.response.ResponseException;

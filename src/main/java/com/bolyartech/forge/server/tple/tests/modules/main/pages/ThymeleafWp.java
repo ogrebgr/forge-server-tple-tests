@@ -1,4 +1,4 @@
-package com.bolyartech.forge.server.tple.tests.pages;
+package com.bolyartech.forge.server.tple.tests.modules.main.pages;
 
 import com.bolyartech.forge.server.handler.WebPage;
 import com.bolyartech.forge.server.misc.TemplateEngine;
@@ -6,16 +6,16 @@ import com.bolyartech.forge.server.misc.TemplateEngineFactory;
 import com.bolyartech.forge.server.route.RequestContext;
 
 
-public class JinjavaWp extends WebPage {
-    public JinjavaWp(TemplateEngineFactory templateEngineFactory) {
+public class ThymeleafWp extends WebPage {
+    public ThymeleafWp(TemplateEngineFactory templateEngineFactory) {
         super(templateEngineFactory);
     }
 
 
     @Override
     public String produceHtml(RequestContext ctx, TemplateEngine tple) {
-        tple.assign("from", "Jinjava template engine");
+        tple.assign("message", "Hello world from Thymeleaf template engine");
 
-        return tple.render("jinjava.html");
+        return tple.render("thymeleaf.html");
     }
 }

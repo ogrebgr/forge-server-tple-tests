@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    {{>trimou/head.mustache}}
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Trimou</h1>
+            </div>
+            {{#presentations}}
+                {{>handlebars/presentation.hbs}}
+            {{/presentations}}
+        </div>
+        {{>trimou/scripts.mustache}}
+    </body>
+</html>

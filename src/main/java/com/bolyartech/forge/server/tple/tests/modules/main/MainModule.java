@@ -1,4 +1,4 @@
-package com.bolyartech.forge.server.tple.tests;
+package com.bolyartech.forge.server.tple.tests.modules.main;
 
 import com.bolyartech.forge.server.HttpMethod;
 import com.bolyartech.forge.server.misc.TemplateEngineFactory;
@@ -15,7 +15,7 @@ import com.bolyartech.forge.server.tple.jtwig.JtwigTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.mustache.MustacheTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.pebble.PebbleTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.rythm.RythmTemplateEngineFactory;
-import com.bolyartech.forge.server.tple.tests.pages.*;
+import com.bolyartech.forge.server.tple.tests.modules.main.pages.*;
 import com.bolyartech.forge.server.tple.thymeleaf.ThymeleafTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.trimou.TrimouTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.velocity.VelocityTemplateEngineFactory;
@@ -64,8 +64,8 @@ public class MainModule implements HttpModule {
         TemplateEngineFactory jjf = new JinjavaTemplateEngineFactory("templates/modules/main/");
         ret.add(new RouteImpl(HttpMethod.GET, "/jinjava", new JinjavaWp(jjf)));
 
-        TemplateEngineFactory rf = new RythmTemplateEngineFactory("templates/modules/main/");
-        ret.add(new RouteImpl(HttpMethod.GET, "/rythm", new RythmWp(rf)));
+//        TemplateEngineFactory rf = new RythmTemplateEngineFactory("templates/modules/main/");
+//        ret.add(new RouteImpl(HttpMethod.GET, "/rythm", new RythmWp(rf)));
 
         TemplateEngineFactory tf = new TrimouTemplateEngineFactory("templates/modules/main/");
         ret.add(new RouteImpl(HttpMethod.GET, "/trimou", new TrimouWp(tf)));
