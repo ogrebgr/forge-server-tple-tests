@@ -10,6 +10,7 @@ public class InMemoryPresentationsRepository implements PresentationsRepository 
     private static AtomicLong counter = new AtomicLong();
     private ConcurrentMap<Long, Presentation> presentations = new ConcurrentHashMap<Long, Presentation>();
 
+
     public InMemoryPresentationsRepository() {
 
         Presentation preso1 = new Presentation();
@@ -72,23 +73,25 @@ public class InMemoryPresentationsRepository implements PresentationsRepository 
         preso10.setSpeakerName("Sander Mak");
         preso10.setSummary("Understanding data is increasingly important to create cutting-edge applications. A whole new data science field is emerging, with the open source R language as index.tpl leading technology. This statistical programming language is specifically designed for analyzing and understanding data. \r<br/>\r<br/>In this session we approach R from the perspective of Java developers. How do you get up to speed quickly, what are the pitfalls to look out for?  Also we discuss how to bridge the divide between the R language and the JVM. After this session you can use your new skills to explore an exciting world of data analytics and machine learning! ");
 
-        presentations.put(preso1.getId(),preso1);
-        presentations.put(preso2.getId(),preso2);
-        presentations.put(preso3.getId(),preso3);
-        presentations.put(preso4.getId(),preso4);
-        presentations.put(preso5.getId(),preso5);
-        presentations.put(preso6.getId(),preso6);
-        presentations.put(preso7.getId(),preso7);
-        presentations.put(preso8.getId(),preso8);
-        presentations.put(preso9.getId(),preso9);
-        presentations.put(preso10.getId(),preso10);
+        presentations.put(preso1.getId(), preso1);
+        presentations.put(preso2.getId(), preso2);
+        presentations.put(preso3.getId(), preso3);
+        presentations.put(preso4.getId(), preso4);
+        presentations.put(preso5.getId(), preso5);
+        presentations.put(preso6.getId(), preso6);
+        presentations.put(preso7.getId(), preso7);
+        presentations.put(preso8.getId(), preso8);
+        presentations.put(preso9.getId(), preso9);
+        presentations.put(preso10.getId(), preso10);
 
     }
+
 
     @Override
     public Iterable<Presentation> findAll() {
         return this.presentations.values();
     }
+
 
     @Override
     public Presentation findPresentation(Long id) {

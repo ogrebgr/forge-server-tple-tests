@@ -14,7 +14,6 @@ import com.bolyartech.forge.server.tple.jinjava.JinjavaTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.jtwig.JtwigTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.mustache.MustacheTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.pebble.PebbleTemplateEngineFactory;
-import com.bolyartech.forge.server.tple.rythm.RythmTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.tests.modules.main.pages.*;
 import com.bolyartech.forge.server.tple.thymeleaf.ThymeleafTemplateEngineFactory;
 import com.bolyartech.forge.server.tple.trimou.TrimouTemplateEngineFactory;
@@ -28,6 +27,7 @@ public class MainModule implements HttpModule {
     private static final String MODULE_SYSTEM_NAME = "main";
     private static final int MODULE_VERSION_CODE = 1;
     private static final String MODULE_VERSION_NAME = "1.0.0";
+
 
     @Override
     public List<Route> createRoutes() {

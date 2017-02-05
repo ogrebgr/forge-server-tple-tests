@@ -33,6 +33,13 @@ public class TestsModule implements HttpModule {
     private static final int MODULE_VERSION_CODE = 1;
     private static final String MODULE_VERSION_NAME = "1.0.0";
 
+    private final String mStaticFilesDir;
+
+
+    public TestsModule(String staticFilesDir) {
+        mStaticFilesDir = staticFilesDir;
+    }
+
 
     @Override
     public List<Route> createRoutes() {
@@ -41,9 +48,9 @@ public class TestsModule implements HttpModule {
         NotFoundResponse notFoundResponse = new NotFoundResponse();
         MimeTypeResolver mimeTypeResolver = new MimeTypeResolverImpl();
 
-        ret.add(new RouteImpl(HttpMethod.GET, "/css", new StaticFileHandler("/static/css", notFoundResponse,
+        ret.add(new RouteImpl(HttpMethod.GET, "/css", new StaticFileHandler(mStaticFilesDir + "css/", notFoundResponse,
                 mimeTypeResolver, true)));
-        ret.add(new RouteImpl(HttpMethod.GET, "/js", new StaticFileHandler("/static/js", notFoundResponse,
+        ret.add(new RouteImpl(HttpMethod.GET, "/js", new StaticFileHandler(mStaticFilesDir + "js/", notFoundResponse,
                 mimeTypeResolver, true)));
 
         Map<String, String> additionalSettings = new HashMap<>();
@@ -61,25 +68,25 @@ public class TestsModule implements HttpModule {
         TemplateEngineFactory htf = new HttlTemplateEngineFactory("/templates/modules/tests/");
         ret.add(new RouteImpl(HttpMethod.GET, "/test/httl", new HttlTestWp(htf)));
 
-        TemplateEngineFactory jf = new JadeTemplateEngineFactory("templates/modules/tests/");
+        TemplateEngineFactory jf = new JadeTemplateEngineFactory("/templates/modules/tests/");
         ret.add(new RouteImpl(HttpMethod.GET, "/test/jade", new JadeTestWp(jf)));
 
-        TemplateEngineFactory jtf = new JtwigTemplateEngineFactory("templates/modules/tests/");
+        TemplateEngineFactory jtf = new JtwigTemplateEngineFactory("/templates/modules/tests/");
         ret.add(new RouteImpl(HttpMethod.GET, "/test/jtwig", new JtwigTestWp(jtf)));
 
-        TemplateEngineFactory mf = new MustacheTemplateEngineFactory("templates/modules/tests/");
+        TemplateEngineFactory mf = new MustacheTemplateEngineFactory("/templates/modules/tests/");
         ret.add(new RouteImpl(HttpMethod.GET, "/test/mustache", new MustacheTestWp(mf)));
 
-        TemplateEngineFactory pf = new PebbleTemplateEngineFactory("templates/modules/tests/");
+        TemplateEngineFactory pf = new PebbleTemplateEngineFactory("/templates/modules/tests/");
         ret.add(new RouteImpl(HttpMethod.GET, "/test/pebble", new PebbleTestWp(pf)));
 
-        TemplateEngineFactory rf = new RythmTemplateEngineFactory("templates/modules/tests/");
+        TemplateEngineFactory rf = new RythmTemplateEngineFactory("/templates/modules/tests/");
         ret.add(new RouteImpl(HttpMethod.GET, "/test/rythm", new RythmTestWp(rf)));
 
-        TemplateEngineFactory tff = new ThymeleafTemplateEngineFactory("templates/modules/tests/");
+        TemplateEngineFactory tff = new ThymeleafTemplateEngineFactory("/templates/modules/tests/");
         ret.add(new RouteImpl(HttpMethod.GET, "/test/thymeleaf", new ThymeleafTestWp(tff)));
 
-        TemplateEngineFactory tf = new TrimouTemplateEngineFactory("templates/modules/tests/");
+        TemplateEngineFactory tf = new TrimouTemplateEngineFactory("/templates/modules/tests/");
         ret.add(new RouteImpl(HttpMethod.GET, "/test/trimou", new TrimouTestWp(tf)));
 
         ret.add(new RouteImpl(HttpMethod.GET, "/test/native", new NativeTestWp(tff)));
