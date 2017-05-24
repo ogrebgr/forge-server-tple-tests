@@ -27,7 +27,7 @@ dependencies {
     compile project(':forge-server-tple-trimou')
     compile project(':forge-server-tple-httl')
 
-    compile 'com.bolyartech.forge:forge-server:4.1.0'
+    compile 'com.bolyartech.forge:forge-server:5.1.0'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
